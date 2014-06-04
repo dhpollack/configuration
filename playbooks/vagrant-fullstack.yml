@@ -17,6 +17,7 @@
     edx_platform_version: 'master'
     edx_ansible_source_repo: 'https://github.com/dhpollack/configuration.git'
     configuration_version: 'master'
+    DUMMY_VAR: true
   vars_files:
     - "group_vars/all"
   roles:
