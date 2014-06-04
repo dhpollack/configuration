@@ -34,6 +34,12 @@
     dest={{ COMMON_CFG_DIR }}/playbooks
     state=link
 
+- name: create backup of vars file
+  copy: >
+    src={{ edx_ansible_var_file }}
+    dest={{ edx_ansible_var_file }}.old
+  when: EDX_ANSIBLE_DUMP_VARS
+
 - name: dump all vars to yaml
   template: src=dumpall.yml.j2 dest={{ edx_ansible_var_file }} mode=0600
   when: EDX_ANSIBLE_DUMP_VARS
@@ -43,10 +49,6 @@
     src={{ edx_ansible_var_file }}
     dest={{ COMMON_CFG_DIR }}/{{ edx_ansible_var_file|basename }}
     state=link
-  when: EDX_ANSIBLE_DUMP_VARS
-
-- name: create backup of vars file
-  shell: python -c "import yaml; y=yaml.load(open('{{ edx_ansible_var_file }}')); f=open('{{ edx_ansible_var_file }}.old', 'wb'); f.write(yaml.safe_dump({key:value for key,value in y.iteritems()}, default_flow_style=False)); f.close();"
   when: EDX_ANSIBLE_DUMP_VARS
 
 - name: clean up var file, removing all version vars and internal ansible vars (anything not caps)
