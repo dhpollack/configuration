@@ -47,6 +47,7 @@
     - "{{ edxapp_course_data_dir }}"
     - "{{ edxapp_upload_dir }}"
 
+# adding nodejs repos
 - name: add ppas for current version of nodejs and npm
   apt_repository: repo="{{ item }}" update_cache=yes
   with_items: {{ edxapp_ubuntu_ppas }}
