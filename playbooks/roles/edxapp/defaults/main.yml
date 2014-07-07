@@ -595,9 +595,9 @@ sandbox_post_requirements:  "{{ edxapp_code_dir }}/requirements/edx-sandbox/post
 # naming is due because according to the following this will fail on a debian target:
 # http://docs.ansible.com/apt_repository_module.html
 edxapp_ubuntu_ppas:
-  - ppa:chris-lea/node.js
-  - ppa:chris-lea/node.js-libs
-  - ppa:chris-lea/libjs-underscore
+  - "ppa:chris-lea/node.js"
+  - "ppa:chris-lea/node.js-libs"
+  - "ppa:chris-lea/libjs-underscore"
   
 edxapp_debian_pkgs:
   - npm
