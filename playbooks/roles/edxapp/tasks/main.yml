@@ -48,7 +48,8 @@
     - "{{ edxapp_upload_dir }}"
 
 - name: add ppas for current version of nodejs and npm
-  apt_repository: repo={{','.join(edxapp_ubuntu_ppas)}} update_cache=yes
+  apt_repository: repo="{{ item }}" update_cache=yes
+  with_items: {{ edxapp_ubuntu_ppas }}
   notify:
   - "restart edxapp"
   - "restart edxapp_workers"
