@@ -605,8 +605,12 @@ sandbox_base_requirements:  "{{ edxapp_code_dir }}/requirements/edx-sandbox/base
 sandbox_local_requirements: "{{ edxapp_code_dir }}/requirements/edx-sandbox/local.txt"
 sandbox_post_requirements:  "{{ edxapp_code_dir }}/requirements/edx-sandbox/post.txt"
 
+edxapp_chrislea_ppas:
+  - "ppa:chris-lea/node.js"
+  - "ppa:chris-lea/node.js-libs"
+  - "ppa:chris-lea/libjs-underscore"
+
 edxapp_debian_pkgs:
-  - npm
   # for compiling the virtualenv
   # (only needed if wheel files aren't available)
   - build-essential
@@ -629,6 +633,7 @@ edxapp_debian_pkgs:
   # misc
   - curl
   - ipython
+  - nodejs
   - npm
   - ntp
   # for shapely
