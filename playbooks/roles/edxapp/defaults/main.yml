@@ -633,7 +633,6 @@ edxapp_debian_pkgs:
   # misc
   - curl
   - ipython
-  - nodejs
   - npm
   - ntp
   # for shapely
